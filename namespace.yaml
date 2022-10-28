@@ -1,0 +1,6 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+    name: learnk8s-node
+    labels:
+      name: learnk8s-node

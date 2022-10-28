@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: learnk8s-node
+    namespace: learnk8s-node
+    labels:
+      name: learnk8s-node
+spec:
+

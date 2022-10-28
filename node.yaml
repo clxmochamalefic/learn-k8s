@@ -1,0 +1,8 @@
+kind: Node
+apiVersion: v1
+metadata:
+    name: learnk8s-node
+    labels:
+      name: learnk8s-node
+spec:
+

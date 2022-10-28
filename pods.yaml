@@ -1,0 +1,21 @@
+kind: Pod
+apiVersion: v1
+metadata:
+    name: pod1
+    namespace: learnk8s-node
+    labels:
+      name: pod1
+spec:
+
+---
+
+kind: Pod
+apiVersion: v1
+metadata:
+    name: pod2
+    namespace: learnk8s-node
+    labels:
+      name: pod2
+spec:
+
+
