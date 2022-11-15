@@ -1,14 +1,32 @@
+# PHP80 (with fpm)
 kind: Pod
 apiVersion: v1
 metadata:
+  name: pod1
+  namespace: learnk8s-node
+  labels:
     name: pod1
-    namespace: learnk8s-node
-    labels:
-      name: pod1
 spec:
+  hostname: php
+  subdomain: default-subdomain
+  containers:
+    - image: php:8.0-fpm-alpine3.16
+      name: php
+      resources:
+        limits:
+          memory: 512Mi
+          cpu: "1"
+        requests:
+          memory: 256Mi
+          cpu: "0.2"
+      volumeMounts:
+      - name: project
+        mountPath: "/var/www
+        subPath: project
 
 ---
 
+# nginx
 kind: Pod
 apiVersion: v1
 metadata:
@@ -17,5 +35,43 @@ metadata:
     labels:
       name: pod2
 spec:
+  hostname: nginx
+  subdomain: default-subdomain
+  containers:
+    - image: nginx:stable-alpine-perl
+      name: nginx
+      resources:
+        limits:
+          memory: 512Mi
+          cpu: "1"
+        requests:
+          memory: 256Mi
+          cpu: "0.2"
 
+---
 
+# mariadb
+kind: Pod
+apiVersion: v1
+metadata:
+    name: pod3
+    namespace: learnk8s-node
+    labels:
+      name: pod3
+spec:
+  hostname: nginx
+  subdomain: default-subdomain
+  containers:
+    - image: mariadb:10.9.3-jammy
+      name: nginx
+      resources:
+        limits:
+          memory: 512Mi
+          cpu: "1"
+        requests:
+          memory: 256Mi
+          cpu: "0.2"
+      volumeMounts:
+      - name: mysql-volume
+        mountPath: "/var/lib/mysql"
+        subPath: mysql_volume

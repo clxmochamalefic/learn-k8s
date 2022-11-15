@@ -81,6 +81,7 @@ data:
 `pod` の `spec > subdcomain` で指定可能
 
 e.g.
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -126,7 +127,7 @@ spec:
 `namespace` を使った方がいいのはそれとして、ファイル別定義にしたとしても、ビルドは以下のコマンドを使ってやった方がいいかもしれない
 
 ```bash
-$ kubectl apply -f <yaml_filepath_or_dirpath> --namespace=<my_namespace>
+kubectl apply -f <yaml_filepath_or_dirpath> --namespace=<my_namespace>
 ```
 
 となると、以下のスクリプトを実行する形がまるいかも
@@ -157,8 +158,8 @@ fi
 how2use:
 
 ```bash
-$ build.k8s.sh ~/test.yaml
-$ build.k8s.sh ~/test.yaml -n hogehoge
+build.k8s.sh ~/test.yaml
+build.k8s.sh ~/test.yaml -n hogehoge
 ```
 
 ちなみにべっこで `namespace` を作る時は `kubectl create namespace <my_namespace>`
